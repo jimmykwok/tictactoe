@@ -2,44 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tic Tac Toe game</title>
-    <link rel='stylesheet prefetch' href='https://getbootstrap.com/2.3.2/assets/css/bootstrap.css'>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Tic Tac Toe Game</title>
+    <!-- Let's replace this old bootstrap with v4 -->
+    <!--<link rel='stylesheet prefetch' href='https://getbootstrap.com/2.3.2/assets/css/bootstrap.css'>-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<div id="tic-tac-toe">
-    <div class="span3 new_span">
-        <div class="row">
-            <h1 class="span3">Tic Tac Toe</h1>
-            <div class="span3">
-                <div class="input-prepend input-append">
-                    <span class="add-on win_text">O won</span><strong id="o_win"
-                                                                      class="win_times add-on">0</strong><span
-                        class="add-on">time(s)</span>
+<div id="tic-tac-toe" class="container">
+    <div class="row align-items-center">
+        <div class="col-3"></div>
+        <div class="col-6 text-center">
+            <form>
+                <h1>
+                    Tic Tac Toe<br/>
+                    <small>Scalable Version</small>
+                </h1>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">X won</span>
+                    </div>
+                    <input readonly id="xWonCount" type="text" class="form-control" value="0">
+                    <div class="input-group-append">
+                        <span class="input-group-text">time(s)</span>
+                    </div>
                 </div>
-                <div class="input-prepend input-append">
-                    <span class="add-on win_text">X won</span><strong id="x_win"
-                                                                      class="win_times add-on">0</strong><span
-                        class="add-on">time(s)</span>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">O won</span>
+                    </div>
+                    <input readonly id="oWonCount" type="text" class="form-control" value="0">
+                    <div class="input-group-append">
+                        <span class="input-group-text">time(s)</span>
+                    </div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="boardSize">Board Size</label>
+                    <input type="number" step="1" min="3" value="3" class="form-control" id="boardSize" name="boardSize"
+                           placeholder="Board Size" required>
+                </div>
+                <button type="button" id="resetBoard" class="btn btn-primary btn-block">Play</button>
+            </form>
         </div>
-        <ul class="row" id="game">
-            <li id="one" class="btn span1">+</li>
-            <li id="two" class="btn span1">+</li>
-            <li id="three" class="btn span1">+</li>
-            <li id="four" class="btn span1">+</li>
-            <li id="five" class="btn span1">+</li>
-            <li id="six" class="btn span1">+</li>
-            <li id="seven" class="btn span1">+</li>
-            <li id="eight" class="btn span1">+</li>
-            <li id="nine" class="btn span1">+</li>
-        </ul>
-        <div class="clr">&nbsp;</div>
-        <div class="row"><a href="#" id="reset" class="btn-success btn span3">Restart</a></div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row align-items-center">
+        <div class="col">
+            <div id="board"></div>
+        </div>
     </div>
 </div>
-<script src='https://code.jquery.com/jquery-1.7.2.min.js'></script>
-<script src="js/index.js"></script>
+<!-- Let's get rid of heavy library like jQuery, use vanilla js instead -->
+<!--<script src='https://code.jquery.com/jquery-1.7.2.min.js'></script>-->
+<script src="./index.js"></script>
 </body>
 </html>
